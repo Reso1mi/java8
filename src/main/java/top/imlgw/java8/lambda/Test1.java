@@ -1,9 +1,7 @@
 package top.imlgw.java8.lambda;
 
-import java.sql.SQLOutput;
 import java.util.Arrays;
 import java.util.List;
-import java.util.function.Consumer;
 
 /**
  * @author imlgw.top
@@ -20,11 +18,6 @@ public class Test1 {
             System.out.println(integer);
         }
         System.out.println("---------");
-        list.forEach(new Consumer<Integer>() {
-            @Override
-            public void accept(Integer integer) {
-                System.out.println(integer);
-            }
-        });
+        list.forEach(integer -> System.out.println(integer));
     }
 }

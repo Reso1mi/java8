@@ -6,20 +6,20 @@ package top.imlgw.java8.supplier;
  */
 public class Student {
 
-    private  String name="Resolmi";
+    private String name = "Resolmi";
 
-    private Integer age=20;
+    private Integer age = 20;
 
     public String getName() {
         return name;
     }
 
-    public Student() {
-    }
-
     public Student(String name, Integer age) {
         this.name = name;
         this.age = age;
+    }
+
+    public Student() {
     }
 
     public void setName(String name) {

@@ -11,6 +11,7 @@ public class BiPredicateTest {
         System.out.println(compare(2323,33124,(a,b)->a.toString().length()>b.toString().length()));
     }
 
+    
     public static boolean compare(Integer a, Integer b, BiPredicate<Integer,Integer> biPredicate){
         return biPredicate.test(a,b);
     }

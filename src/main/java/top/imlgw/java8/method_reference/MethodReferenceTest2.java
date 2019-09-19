@@ -43,6 +43,7 @@ public class MethodReferenceTest2 {
         System.out.println("=============");
 
         //3.类名::实例方法名, 调用者为sort中lambda表达式的第一个参数,其他的作为方法参数
+        // 其实也就是compareStudentByScore2的第一个参数this
         students.sort(Student::compareStudentByScore2);
         System.out.println(students);
 

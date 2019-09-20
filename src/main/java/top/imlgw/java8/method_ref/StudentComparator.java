@@ -1,4 +1,4 @@
-package top.imlgw.java8.method_reference;
+package top.imlgw.java8.method_ref;
 
 /**
  * @author imlgw.top

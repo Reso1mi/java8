@@ -18,6 +18,7 @@ public class OptionalTest {
         }*/
 
         //推荐的Optional使用方式,函数式的思想
+        //Optional很多时候用在返回值上,避免NPE
         optional.ifPresent(item-> System.out.println(item));//啥也不干
 
         System.out.println(optional.orElse("world")); //world

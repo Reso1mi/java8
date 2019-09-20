@@ -29,6 +29,9 @@ public class StreamTest2 {
         System.out.println("=========");
 
         //根源的方法,等价于上面的
+        //第一个参数Supplier不接收参数返回一个结果容器,这里就是list
+        //第二个参数将Stream流的每一项添加到另一个list中
+        //第三个参数将一个list添加到结果list中（看起来有点多余,可能是为了并行流设计的）
         ArrayList<Object> collect1 = stringStream2.collect(() -> new ArrayList<>(),
                 (thelist, item) -> thelist.add(item), (list1, list2) -> list1.add(list2));
         collect1.forEach(System.out::println);

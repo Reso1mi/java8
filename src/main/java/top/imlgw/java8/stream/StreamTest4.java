@@ -26,6 +26,7 @@ public class StreamTest4 {
         integerList.stream().map(integer -> integer*integer).collect(Collectors.toList()).forEach(System.out::println);
 
         System.out.println("==============");
+        //扁平化,将所有的list合并为一个流
         Stream<List<Integer>> listStream = Stream.of(Arrays.asList(1, 2, 3), Arrays.asList(4, 5, 6), Arrays.asList(7, 8, 9));
         listStream.flatMap(lis->lis.stream().map(integer -> integer*integer)).collect(Collectors.toList()).forEach(System.out::println);
     }

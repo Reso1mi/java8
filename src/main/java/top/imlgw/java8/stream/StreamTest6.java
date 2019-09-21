@@ -41,6 +41,12 @@ public class StreamTest6 {
         //下面的是有问题的,distinct()会一直等待前面的输出,认为会有不同的出现,并不知道前面只会输出1
         //IntStream.iterate(0,i->i).distinct().limit(6).forEach(System.out::println);
         //改成这样就没问题,先限制数量再去重
+        //JDK11 中好像给迭代器加了一个predicate谓词判断
         IntStream.iterate(0, i -> i).limit(6).distinct().forEach(System.out::println);
+
+        //流是内部迭代, 传统的for循环是外部迭代, 本质的区别就是具体的操作是在哪里发生的, for循环时用户在集合的外部写的代码操作集合
+        //而流则提供了接口, 用户的代码和流是一体的,在流的内部进行操作
+        //集合关注的时数据和数据存储
+        //而流关注的是对数据的计算
     }
 }

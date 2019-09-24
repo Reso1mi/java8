@@ -1,7 +1,7 @@
 package top.imlgw.java8.time;
 
-
 import java.time.*;
+import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 import java.util.Set;
 import java.util.TreeSet;
@@ -94,13 +94,29 @@ public class Java8TimeTest {
         LocalDate lo1 = LocalDate.now();
         LocalDate lo2 = LocalDate.of(2018,12,8);
         Period between = Period.between(lo2, lo1);
-        System.out.println(between.getYears()); //0 符合人类自觉
+        System.out.println(between.getYears()); //0 符合人类直觉 ：0年,9个月,15天
         System.out.println(between.getMonths());//9
         System.out.println(between.getDays());  //15
 
         System.out.println("============");
         //不带时区的UTC
-        System.out.println(Instant.now());
+        System.out.println(Instant.now()); //2019-09-24T09:37:31.355Z
+
+        System.out.println("============");
+        //format
+        LocalDateTime ldt=LocalDateTime.of(2019,9,9,17,40,14);
+        System.out.println(ldt.format(DateTimeFormatter.ISO_LOCAL_DATE_TIME));//2019-09-09T17:40:14
+        System.out.println(ldt.format(DateTimeFormatter.ISO_DATE));//2019-09-09
+        System.out.println(ldt.format(DateTimeFormatter.BASIC_ISO_DATE));//20190909
+        System.out.println(ldt.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))); //2019-09-09 17:40:14
+
+
+        //parse
+        DateTimeFormatter formatter=DateTimeFormatter.ISO_LOCAL_DATE_TIME;
+        System.out.println(formatter.parse("2019-09-09T17:40:14"));//{},ISO resolved to 2019-09-09T17:40:14
+        System.out.println(DateTimeFormatter.ISO_DATE.parse("2019-09-09"));//{},ISO resolved to 2019-09-09
+        System.out.println(DateTimeFormatter.BASIC_ISO_DATE.parse("20190909"));//{},ISO resolved to 2019-09-09
+        System.out.println(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss").parse("2019-09-09 17:40:14"));//{},ISO resolved to 2019-09-09T17:40:14
     }
 }
 
